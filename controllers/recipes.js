@@ -8,4 +8,11 @@ const Recipe = require('../models/recipe.js');
 
 // router logic will go here - will be built later on in the lab
 
+router.get('/', async (req, res) => {
+    const allRecipes = await Recipe.find({});
+    console.log(allRecipes) //all the recipes in console
+    res.render('recipes/index.ejs', {recipes: allRecipes});
+  });
+  
+
 module.exports = router;

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipes</title>
+  </head>
+  <body>
+    <h1>Welcome to My Recipes</h1>
+    <% recipes.forEach(recipe => { %>
+      
+    <ul>
+      <h1><%=recipe.name %></h1>
+      instructions:
+      <%= recipe.instructions %>
+
+      by <%= recipe.owner %>
+
+      ingredients:
+      <%= recipe.ingredients %>
+    </ul>
+
+  <% }); %> 
+  </body>
+</html>
+<!-- const recipeSchema = ({
+    name:{
+        type: String,
+        required: true,
+    },
+    instructions:{
+        type: String,
+        required: false,
+    },
+    owner:{
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+    },
+    ingredients:{
+        type:[mongoose.Schema.Types.ObjectId],
+        required: false,
+    }
+}) -->
