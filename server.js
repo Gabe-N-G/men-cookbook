@@ -7,6 +7,11 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
 
+//middleware
+const isSignedIn = require('./middleware/is-signed-in.js');
+const passUserToView = require('./middleware/pass-user-to-view.js');
+
+//contollers
 const authController = require('./controllers/auth.js');
 const recipesController = require('./controllers/recipes.js');
 const ingredientsController = require('./controllers/ingredients.js');
@@ -45,7 +50,10 @@ app.get('/vip-lounge', (req, res) => {
   }
 });
 
+//middleware surrounding /auth
+app.use(passUserToView);
 app.use('/auth', authController);
+app.use(isSignedIn);
 // new routes
 app.use('/recipes', recipesController);
 app.use('/ingredients', ingredientsController);
