@@ -11,5 +11,9 @@
     <h4>Instructions: <%= recipe.instructions  %></h4>
     <br>
     <h4>Ingredients: <%= recipe.ingredients %></h4>
+
+    <form action="/recipes/<%=recipe._id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete this 😢</button>
+    </form>
 </body>
 </html>

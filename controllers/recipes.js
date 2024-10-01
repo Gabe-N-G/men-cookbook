@@ -6,6 +6,7 @@ const router = express.Router();
 const User = require('../models/user.js');
 const Recipe = require('../models/recipe.js');
 
+
 // router logic will go here - will be built later on in the lab
 
 router.get('/', async (req, res) => {
@@ -39,5 +40,10 @@ router.get('/new', async (req,res)=>{
     // res.send("we've hit the new page")
     res.render('recipes/new.ejs')
 })
+
+router.delete("/:recipeId", async (req, res) => {
+  await Recipe.findByIdAndDelete(req.params.recipeId);
+  res.redirect("/recipes");
+});
 
 module.exports = router;
