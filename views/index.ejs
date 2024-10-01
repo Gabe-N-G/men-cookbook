@@ -10,6 +10,7 @@
   <% if (user) { %>
     <h1>Welcome to cookbook, <%= user.username %>!</h1>
     <p>
+      <a href="/recipes/new">New recipe</a>
       <a href="/auth/sign-out">Sign out</a>
     </p>
   <% } else { %>
