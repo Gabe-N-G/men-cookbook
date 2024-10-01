@@ -46,4 +46,17 @@ router.delete("/:recipeId", async (req, res) => {
   res.redirect("/recipes");
 });
 
+router.get("/:recipeId/edit", async (req, res) => {
+  const foundRecipe = await Recipe.findById(req.params.recipeId);
+  res.render("recipes/edit.ejs", {
+    recipe: foundRecipe,
+  });
+});
+
+router.put("/:recipeId", async (req,res)=>{
+  // const foundRecipe = await Recipe.findById(req.params.recipeId);
+  await Recipe.findByIdAndUpdate(req.params.recipeId, req.body)
+  res.redirect("/recipes")
+})
+
 module.exports = router;

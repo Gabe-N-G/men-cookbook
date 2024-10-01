@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/recipes/<%=recipe.id%>?_method=PUT" method="POST">
+
+        <label for="name">Recipe name:</label>
+        <input type="text" name="name" id="name" value="<%= recipe.name %>">
+        <br>
+        
+
+        <label for="instructions">Instuctions:</label>
+        <br>
+        <textarea name="instructions" id="instructions" rows="20" cols="50"><%= recipe.instructions %></textarea> 
+
+
+        <button type="submit">Let's cook!</button>
+</body>
+</html>
