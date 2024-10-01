@@ -20,9 +20,11 @@ router.post('/', async (req, res) => {
       const newRecipe = new Recipe(req.body);
       newRecipe.owner = req.session.user._id
       await newRecipe.save();
+      res.redirect("/")
       // Redirect to recipe index or show page
     } catch (error) {
       // Handle errors
+      console.log("error")
     }
   });
 
