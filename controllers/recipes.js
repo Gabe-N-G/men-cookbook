@@ -14,6 +14,14 @@ router.get('/', async (req, res) => {
     res.render('recipes/index.ejs', {recipes: allRecipes});
 });
 
+router.get('/:recipeid', async (req,res) => {
+  // res.send("show page here")
+  const currentRecipe = await Recipe.findById(req.params.recipeid).populate("owner")
+  res.render('recipes/show.ejs', {
+    recipe: currentRecipe,
+  });
+})
+
 router.post('/', async (req, res) => {
     try {
       const newRecipe = new Recipe(req.body);
